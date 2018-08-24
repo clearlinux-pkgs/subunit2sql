@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+1.10.0
+------
+
+* Clean up run\_time graph style
+* Fix pandas rolling calls in run\_time graph
+* Amend releasenotes for new subunit2sql functions and options
+* Add ability to grab stream processing variables from kwargs
+* Add delete by uuid functions
+* Honor dpi cli flag for ci\_time graph
+* Add --dpi flag to subunit2sql-graph
+
 1.9.0
 -----
 
@@ -8,6 +19,7 @@ CHANGES
 * Fix mysql db api
 * Remove setting of version/release from releasenotes
 * remove oslosphinx from test-requirements
+* Add graph for aggregate run time grouped by run metadata
 * Update python3 versions in tox.ini envlist
 * Switch to use stestr completely
 * Switch to using stestr
