@@ -4,40 +4,27 @@
 #
 Name     : subunit2sql
 Version  : 1.10.0
-Release  : 2
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/4a/15/ea60dce3714edf9f57770178673b189e0829b9600c465ab4ba445c42ca61/subunit2sql-1.10.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4a/15/ea60dce3714edf9f57770178673b189e0829b9600c465ab4ba445c42ca61/subunit2sql-1.10.0.tar.gz
 Summary  : Command to Read a subunit file or stream and put the data in a SQL DB
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: subunit2sql-bin
-Requires: subunit2sql-python3
-Requires: subunit2sql-license
-Requires: subunit2sql-python
+Requires: subunit2sql-bin = %{version}-%{release}
+Requires: subunit2sql-license = %{version}-%{release}
+Requires: subunit2sql-python = %{version}-%{release}
+Requires: subunit2sql-python3 = %{version}-%{release}
 Requires: SQLAlchemy
-Requires: Sphinx
 Requires: alembic
-Requires: coverage
-Requires: fixtures
-Requires: hacking
 Requires: matplotlib
-Requires: openstackdocstheme
-Requires: oslo.concurrency
 Requires: oslo.config
 Requires: oslo.db
 Requires: pandas
 Requires: pbr
-Requires: psycopg2
 Requires: python-dateutil
-Requires: python-mock
 Requires: python-subunit
-Requires: reno
 Requires: six
-Requires: stestr
 Requires: stevedore
-Requires: testresources
-Requires: testscenarios
-Requires: testtools
 BuildRequires : buildreq-distutils3
 BuildRequires : pbr
 
@@ -60,7 +47,7 @@ subunit2SQL README
 %package bin
 Summary: bin components for the subunit2sql package.
 Group: Binaries
-Requires: subunit2sql-license
+Requires: subunit2sql-license = %{version}-%{release}
 
 %description bin
 bin components for the subunit2sql package.
@@ -77,7 +64,7 @@ license components for the subunit2sql package.
 %package python
 Summary: python components for the subunit2sql package.
 Group: Default
-Requires: subunit2sql-python3
+Requires: subunit2sql-python3 = %{version}-%{release}
 
 %description python
 python components for the subunit2sql package.
@@ -100,14 +87,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535143261
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1541279717
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/subunit2sql
-cp LICENSE %{buildroot}/usr/share/doc/subunit2sql/LICENSE
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/subunit2sql
+cp LICENSE %{buildroot}/usr/share/package-licenses/subunit2sql/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -123,8 +110,8 @@ echo ----[ mark ]----
 /usr/bin/subunit2sql-graph
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/subunit2sql/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/subunit2sql/LICENSE
 
 %files python
 %defattr(-,root,root,-)
