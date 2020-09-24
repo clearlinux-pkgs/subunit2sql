@@ -4,7 +4,7 @@
 #
 Name     : subunit2sql
 Version  : 1.10.0
-Release  : 10
+Release  : 11
 URL      : https://files.pythonhosted.org/packages/4a/15/ea60dce3714edf9f57770178673b189e0829b9600c465ab4ba445c42ca61/subunit2sql-1.10.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4a/15/ea60dce3714edf9f57770178673b189e0829b9600c465ab4ba445c42ca61/subunit2sql-1.10.0.tar.gz
 Summary  : Command to Read a subunit file or stream and put the data in a SQL DB
